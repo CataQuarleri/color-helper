@@ -1,28 +1,48 @@
 import React from 'react'
-import Signup from '../components/Signup'
-import Dashboard from '../components/Dashboard'
-import Login from '../components/Login'
+import Signup from '../pages/Signup'
+import Dashboard from '../pages/Dashboard'
+import Login from '../pages/Login'
 import PrivateRoute from '../components/PrivateRoute'
-import ForgotPassword from '../components/ForgotPassword'
-import UpdateProfile from '../components/UpdateProfile'
-import PageNotFound from '../components/PageNotFound'
+import ForgotPassword from '../pages/ForgotPassword'
+import UpdateProfile from '../pages/UpdateProfile'
+import PageNotFound from '../pages/PageNotFound'
+import GuestRoute from '../components/GuestRoute'
+import ColorHelper from '../pages/ColorHelper'
 
-const allRoutes = [
-    {
-        path:'/', 
-        element: <PrivateRoute>
+import { Routes, Route } from 'react-router-dom'
+
+function AllRoutes(){
+  return(
+    <div className="w-100 align-self-center" style={{maxWidth: '400px'}}>
+    <Routes>
+    <Route exact path="/" element={
+        <ColorHelper/>}/>
+    <Route path="/profile" element={
+      <PrivateRoute>
         <Dashboard/>
       </PrivateRoute>
-    },
-    {
-        path:'/update-profile', 
-        element: <PrivateRoute>
+    }/>
+    <Route path="/update-profile" element={
+      <PrivateRoute>
         <UpdateProfile/>
       </PrivateRoute>
-    },
-    {
-        path: '/signup', 
-        element: `${<Signup/>}`
-    }
-]
-export default allRoutes
+    }/>
+    <Route path="/signup" 
+    element={<GuestRoute>
+      <Signup/>
+    </GuestRoute>
+    }/>
+    <Route path="/login" 
+    element={<GuestRoute>
+      <Login/>
+    </GuestRoute>}/>
+    <Route path="/forgot-password" element={
+    <GuestRoute>
+      <ForgotPassword/>
+    </GuestRoute>}/>
+    <Route path="/*" element={<PageNotFound/>}/>
+    </Routes>
+</div>
+  )
+}
+export default AllRoutes

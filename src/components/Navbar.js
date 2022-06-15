@@ -31,7 +31,7 @@ export default function Navigation() {
             <NavDropdown.Item href="/login" >Log In</NavDropdown.Item>
           </>}
           {currentUser && <>
-            <NavDropdown.Item href="/update-profile">{currentUser.email}</NavDropdown.Item>
+            <NavDropdown.Item href="/profile">{currentUser.email}</NavDropdown.Item>
             <NavDropdown.Item href="/my-color-schemes">My color schemes</NavDropdown.Item>
             <NavDropdown.Item href="/update-profile">Settings</NavDropdown.Item>
             <NavDropdown.Divider />

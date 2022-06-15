@@ -16,7 +16,7 @@ async function handleSubmit(e){
         setError('')
         setLoading(true)
         await login(emailRef.current.value, passwordRef.current.value)
-        navigate('/')
+        navigate('/profile')
     }
     catch(error){
         setError('Failed to log in')
@@ -27,7 +27,7 @@ async function handleSubmit(e){
   return (
     <>
     <Card>
-        <Card.Body>
+        <Card.Body className="">
             <h2 className="text-center mb-4">Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>

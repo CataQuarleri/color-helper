@@ -33,7 +33,7 @@ function handleSubmit(e){
     }).finally(()=>{
         setError('')
         setLoading(false)
-        navigate('/')
+        navigate('/profile')
     })
 }
   return (
