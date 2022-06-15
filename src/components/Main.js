@@ -7,22 +7,20 @@ import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
 import PageNotFound from './PageNotFound'
 import Navigation from './Navbar'
-import GuestRoute from './GuestRoute'
 // import AllRoutes from '../config/routes'
 import { Container } from "react-bootstrap"
 import { AuthProvider } from '../contexts/AuthContext'
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-function App() {
+function Main() {
   return (
     <Container 
-    className="d-flex flex-column align-items-around justify-content-center" 
-    // style={{minHeight: "100vh"}}
-    >
+    className="flex-column align-items-center justify-content-center" 
+    style={{minHeight: "100vh"}}>
+    <Navigation/>
+    <div className="w-100" style={{maxWidth: '400px'}}>
       <Router>
       <AuthProvider>
-    <Navigation/>
-    <div className="w-100 align-self-center" style={{maxWidth: '400px'}}>
         <Routes>
           {/* {AllRoutes.map(route=>{
             <Route path={route.path}
@@ -38,26 +36,17 @@ function App() {
             <UpdateProfile/>
           </PrivateRoute>
         }/>
-        <Route path="/signup" 
-        element={<GuestRoute>
-          <Signup/>
-        </GuestRoute>
-        }/>
-        <Route path="/login" 
-        element={<GuestRoute>
-          <Login/>
-        </GuestRoute>}/>
-        <Route path="/forgot-password" element={<GuestRoute>
-          <ForgotPassword/>
-        </GuestRoute>}/>
+        <Route path="/signup" element={<Signup/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="/*" element={<PageNotFound/>}/>
         </Routes>
-    </div>
       </AuthProvider>
       </Router>
+    </div>
   </Container>
     
   )
 }
 
-export default App;
+export default Main;
