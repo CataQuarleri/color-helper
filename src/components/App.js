@@ -5,7 +5,7 @@ import '../App.css'
 
 function App() {
   return (
-    <Container className="d-flex flex-column align-items-around justify-content-center">
+    <Container className="d-flex flex-column align-items-around justify-content-center" bg="#fffffb">
              <Main/>
   </Container>
   )

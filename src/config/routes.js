@@ -13,7 +13,7 @@ import { Routes, Route } from 'react-router-dom'
 
 function AllRoutes(){
   return(
-    <div className="w-100 align-self-center" style={{maxWidth: '400px'}}>
+    <div className="w-100 align-self-center m-5 p-5" style={{maxWidth: '600px'}}>
     <Routes>
     <Route exact path="/" element={
         <ColorHelper/>}/>

@@ -9,7 +9,8 @@ export function useColor(){
 export function ColorProvider({children}) {
     const [currentColor, setCurrentColor] = useState('#9b29d4')
     const value = {
-        currentColor, setCurrentColor
+        currentColor, 
+        setCurrentColor
     }
   return (
     <ColorContext.Provider value={value}>
